@@ -6,7 +6,7 @@ import joblib
 # Create Flask object to run
 
 app = Flask(__name__,template_folder= 'templates' )
-knnIrisModel = pickle.load(open('irismodell.pkl', 'rb'))
+knnIrisModel = pickle.load(open('irismodel.pkl', 'rb'))
 
 
 @app.route('/')
