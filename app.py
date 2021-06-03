@@ -15,7 +15,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 	
-	knnIrisModel = joblib.load('irismodell.pkl')
+	knnIrisModel = pickle.load(open('irismodell.pkl', 'rb'))
 	int_features = [float(x) for x in request.form.values()]
 
 
