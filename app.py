@@ -14,18 +14,17 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-  try:
-    knnIrisModel = joblib.load('irismodell.pkl')
-    int_features = [float(x) for x in request.form.values()]
+	
+	knnIrisModel = joblib.load('irismodell.pkl')
+	int_features = [float(x) for x in request.form.values()]
 
 
-    final_features = [np.array(int_features)]
+	final_features = [np.array(int_features)]
 
-    prediction = knnIrisModel.predict(final_features)
-    output =prediction[0]
-    return render_template('index.html', prediction_text= output)
-  except:
-    return render_template('index.html', prediction_text= 'invalid input')
+	prediction = knnIrisModel.predict(final_features)
+	output =prediction[0]
+	return render_template('index.html', prediction_text= output)
+
     
 if __name__ == "__main__":
 	app.run()
