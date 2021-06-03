@@ -6,6 +6,7 @@ import joblib
 # Create Flask object to run
 
 app = Flask(__name__,template_folder= 'templates' )
+knnIrisModel = pickle.load(open('irismodell.pkl', 'rb'))
 
 
 @app.route('/')
@@ -15,7 +16,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 	
-	knnIrisModel = pickle.load(open('irismodell.pkl', 'rb'))
+	
 	int_features = [float(x) for x in request.form.values()]
 
 
